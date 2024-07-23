@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Passenger List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Available Carpoolers</h1>
+    </header>
+    <div class="container">
+        <table id="passengerTable">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Phone Number</th>
+                    <th>Start Location</th>
+                    <th>Destination</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="resetButton">Reset List</button>
+        <a href="index.html">Back to Form</a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Carpooling Service. All rights reserved.</p>
+        <p>This is a community service project aimed at enhancing local carpooling efforts.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const passengers = JSON.parse(localStorage.getItem('passengers')) || [];
+            const tableBody = document.querySelector('#passengerTable tbody');
+            
+            passengers.forEach(passenger => {
+                const row = document.createElement('tr');
+                
+                row.innerHTML = `
+                    <td>${passenger.name}</td>
+                    <td>${passenger.number}</td>
+                    <td>${passenger.startLocation}</td>
+                    <td>${passenger.destination}</td>
+                `;
+                
+                tableBody.appendChild(row);
+            });
+
+            document.getElementById('resetButton').addEventListener('click', function() {
+                localStorage.removeItem('passengers');
+                while (tableBody.firstChild) {
+                    tableBody.removeChild(tableBody.firstChild);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

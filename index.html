@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carpooling Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Carpooling Registration</h1>
+    </header>
+    <div class="container">
+        <form id="carpoolForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="number">Phone Number:</label>
+            <input type="tel" id="number" name="number" required>
+
+            <label for="startLocation">Start Location:</label>
+            <input type="text" id="startLocation" name="startLocation" required>
+
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Carpooling Service. All rights reserved.</p>
+        <p>This is a community service project aimed at enhancing local carpooling efforts.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
